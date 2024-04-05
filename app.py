@@ -47,7 +47,7 @@ if submit_button:
     st.write('Your investment amount:', investment)
     # Here you can add your investment suggestions logic
 
-# Sidebar and footer
+# Sidebar and footers
 st.sidebar.title('Contents')
 st.sidebar.write('Home')
 st.sidebar.write('Tax Calculator')
@@ -55,3 +55,4 @@ st.sidebar.write('Investment Suggestions')
 st.sidebar.write('About Us')
 st.markdown('---')
 st.write('Core Dump Team© 2024')
+
