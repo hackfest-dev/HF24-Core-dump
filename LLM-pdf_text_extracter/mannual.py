@@ -95,67 +95,68 @@ def generate_suggestions(income, age, investment):
 
 
 
-# Streamlit app
-st.title('TaxCraft')
+def mannual():
+    # Streamlit app
+    st.title('TaxCraft')
 
-# Upload PDF and extract text
-st.header('Upload Your Tax Document')
-uploaded_file = st.file_uploader('Choose a file', type=['pdf', 'docx'])
+    # Upload PDF and extract text
+    st.header('Upload Your Tax Document')
+    uploaded_file = st.file_uploader('Choose a file', type=['pdf', 'docx'])
 
-if uploaded_file is not None:
-    extracted_text = extract_text_from_pdf(uploaded_file)
-    summarized_text = summarize_text_with_gpt3(extracted_text)
-    st.write('Summary of your document:', summarized_text)
+    if uploaded_file is not None:
+        extracted_text = extract_text_from_pdf(uploaded_file)
+        summarized_text = summarize_text_with_gpt3(extracted_text)
+        st.write('Summary of your document:', summarized_text)
 
-# User input for tax information
-st.header('Enter Your Tax Information')
-with st.form(key='tax_form'):
-    income = st.number_input('Enter your annual income:', min_value=0)
-    age = st.number_input('Enter your age:', min_value=0, max_value=100)
-    investment = st.number_input('Enter your investment amount:', min_value=0)
-    loan = st.number_input('Enter your loan amount:', min_value=0)
-    us_investment = st.number_input('Enter your US investment amount:', min_value=0)
-    submit_button = st.form_submit_button(label='Calculate Tax')
+    # User input for tax information
+    st.header('Enter Your Tax Information')
+    with st.form(key='tax_form'):
+        income = st.number_input('Enter your annual income:', min_value=0)
+        age = st.number_input('Enter your age:', min_value=0, max_value=100)
+        investment = st.number_input('Enter your investment amount:', min_value=0)
+        loan = st.number_input('Enter your loan amount:', min_value=0)
+        us_investment = st.number_input('Enter your US investment amount:', min_value=0)
+        submit_button = st.form_submit_button(label='Calculate Tax')
 
-if submit_button:
-    tax = calculate_tax(income, age, investment, loan, us_investment)
-    st.write('Your calculated tax:', tax)
-    # Here you can add your investment suggestions logic
-    suggestions = generate_suggestions(income, age, investment)
-    st.header('Investment Suggestions')
-    if suggestions:
-        for suggestion in suggestions:
-            st.write('- ', suggestion)
-    else:
-        st.write('No specific suggestions based on the provided data.')
+    if submit_button:
+        tax = calculate_tax(income, age, investment, loan, us_investment)
+        st.write('Your calculated tax:', tax)
+        # Here you can add your investment suggestions logic
+        suggestions = generate_suggestions(income, age, investment)
+        st.header('Investment Suggestions')
+        if suggestions:
+            for suggestion in suggestions:
+                st.write('- ', suggestion)
+        else:
+            st.write('No specific suggestions based on the provided data.')
 
-# Sidebar and footers
-st.sidebar.title('Contents')
-st.sidebar.write('[Home](#)')
-st.sidebar.write('[Tax Calculator](#tax)')
-st.sidebar.write('[Investment Suggestions](#suggestions)')
-st.sidebar.write('[About Us](#about)')
-st.markdown('---')
-st.write('Core Dump Team© 2024')
+    # Sidebar and footers
+    st.sidebar.title('Contents')
+    st.sidebar.write('[Home](#)')
+    st.sidebar.write('[Tax Calculator](#tax)')
+    st.sidebar.write('[Investment Suggestions](#suggestions)')
+    st.sidebar.write('[About Us](#about)')
+    st.markdown('---')
+    st.write('Core Dump Team© 2024')
 
-# Detailed suggestions for tax reduction
-st.header('Tax Reduction Suggestions')
-st.subheader('1. Utilize Tax-Advantaged Accounts')
-st.write('Consider contributing to retirement accounts such as 401(k), IRA, or HSA to reduce taxable income.')
+    # Detailed suggestions for tax reduction
+    st.header('Tax Reduction Suggestions')
+    st.subheader('1. Utilize Tax-Advantaged Accounts')
+    st.write('Consider contributing to retirement accounts such as 401(k), IRA, or HSA to reduce taxable income.')
 
-st.subheader('2. Take Advantage of Tax Deductions and Credits')
-st.write('Explore available deductions and credits such as mortgage interest deduction, education expenses, or charitable donations.')
+    st.subheader('2. Take Advantage of Tax Deductions and Credits')
+    st.write('Explore available deductions and credits such as mortgage interest deduction, education expenses, or charitable donations.')
 
-st.subheader('3. Invest in Tax-Efficient Funds')
-st.write('Invest in funds that are tax-efficient, such as index funds or municipal bonds, to minimize tax obligations.')
+    st.subheader('3. Invest in Tax-Efficient Funds')
+    st.write('Invest in funds that are tax-efficient, such as index funds or municipal bonds, to minimize tax obligations.')
 
-st.subheader('4. Harvest Tax Losses')
-st.write('Strategically sell investments to realize losses, which can offset capital gains and reduce taxable income.')
+    st.subheader('4. Harvest Tax Losses')
+    st.write('Strategically sell investments to realize losses, which can offset capital gains and reduce taxable income.')
 
-st.subheader('5. Plan Charitable Contributions')
-st.write('Donate appreciated assets directly to charities to avoid capital gains taxes and receive tax deductions.')
+    st.subheader('5. Plan Charitable Contributions')
+    st.write('Donate appreciated assets directly to charities to avoid capital gains taxes and receive tax deductions.')
 
-# Anchor links for sidebar
-st.write('<a name="tax"></a>', unsafe_allow_html=True)
-st.write('<a name="suggestions"></a>', unsafe_allow_html=True)
-st.write('<a name="about"></a>', unsafe_allow_html=True)
+    # Anchor links for sidebar
+    st.write('<a name="tax"></a>', unsafe_allow_html=True)
+    st.write('<a name="suggestions"></a>', unsafe_allow_html=True)
+    st.write('<a name="about"></a>', unsafe_allow_html=True)
