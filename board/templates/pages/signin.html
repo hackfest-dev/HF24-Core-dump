@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+.container {
+ 
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.input-group {
+  margin-bottom: 15px;
+}
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+.btn {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border-radius: 3px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.back-btn {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 20px;
+}
+.back-btn:hover {
+  background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Login</h2>
+  <form id="loginForm" onsubmit="return validateForm()">
+    <div class="input-group">
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="input-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit" class="btn">Login</button>
+  </form>
+  <a href="home.html" class="back-btn">Back</a>
+</div>
+
+<script>
+function validateForm() {
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  if (email.trim() === '' || password.trim() === '') {
+    alert('Please enter both email and password.');
+    return false;
+  }
+  return true;
+}
+</script>
+</body>
+</html>
