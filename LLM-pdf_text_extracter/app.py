@@ -86,19 +86,29 @@ def main():
 
     user_question = st.text_input("Ask a Question:")
 
-    if user_question:
-        user_input(user_question)
-
     with st.sidebar:
         st.title("Menu:")
         pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button",
                                     accept_multiple_files=True)
+        kb_pdf_docs = st.file_uploader("Upload Knowledge Base PDF Files", accept_multiple_files=True)
+
         if st.button("Submit & Process"):
             with st.spinner("Processing..."):
                 raw_text = get_pdf_text(pdf_docs)
                 text_chunks = get_text_chunks(raw_text)
                 get_vector_store(text_chunks)
+
+                if kb_pdf_docs:
+                    kb_raw_text = get_pdf_text(kb_pdf_docs)
+                    kb_text_chunks = get_text_chunks(kb_raw_text)
+                    get_vector_store(kb_text_chunks)
+                else:
+                    kb_text_chunks = []  # Initialize kb_text_chunks as an empty list if no knowledge base PDFs are uploaded
+
                 st.success("Done")
+
+    if user_question:
+        user_input(user_question, kb_text_chunks)
 
 
 if __name__ == "__main__":

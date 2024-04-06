@@ -1,6 +1,29 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <h1>About Us</h1>
-    <p>This is the about page of our Flask app.</p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        /* CSS for centering TaxCraft text and changing background color */
+        body {
+            background-color: #f0f0f0; /* Change background color here */
+            text-align: center;
+            padding-top: 100px; /* Adjust vertical padding as needed */
+        }
+        .taxcraft {
+            font-size: 48px; /* Adjust font size as needed */
+            font-weight: bold;
+            color: #333; /* Change text color here */
+        }
+        .signin-btn {
+            padding-right: 20px; /* Add padding to the right of the sign-in button */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="taxcraft">TaxCraft</h1>
+    <br>
+    <a class="btn btn-primary signin-btn" href="#">Sign In</a>
+</body>
+</html>
