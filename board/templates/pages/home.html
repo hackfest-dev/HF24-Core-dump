@@ -1,45 +1,199 @@
+<<<<<<< HEAD
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome to the Home Page</h1>
+    <p>This is the home page of our Flask app.</p>
+{% endblock %}
+=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    
     <style>
         /* CSS for styling */
+       
         body {
-            background-color: #add8e6; /* Light blue background color */
+     background-image: url('background.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+  background-size: 100% 100%; /* Gradient background color */
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Align items to the top */
             height: 100vh;
             margin: 0;
+            padding-top: 20px; /* Add some space at the top */
+            position: relative; /* Position relative for absolute positioning */
         }
-        .taxcraft {
-            font-size: 64px; /* Bigger font size for TaxCraft */
-            font-weight: bold;
-            color: #333; /* Text color */
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Text shadow for cool effect */
+        .top-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px; /* Margin bottom for spacing */
+        }
+        .top-link {
+            margin: 0 20px; /* Margin for spacing between links */
+            font-size: 18px;
+            color: #333;
+            text-decoration: none;
+            position: relative; /* Position relative for absolute positioning */
+        }
+        .top-link::after {
+            content: '\25BE'; /* Unicode for down arrow */
+            position: absolute;
+            top: 50%;
+            right: -10px;
+            transform: translateY(-50%);
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .top-link:hover .dropdown-content {
+            display: block;
         }
         .signin-btn {
-            padding: 10px 20px; /* Padding for sign-in button */
-            margin-top: 20px; /* Margin top for sign-in button */
+            padding: 10px 55px; /* Padding for sign-in button */
             background-color: #007bff; /* Button background color */
             color: white; /* Button text color */
             border: none;
             border-radius: 5px;
             text-decoration: none;
             transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+            position :fixed; /* Position absolute for absolute positioning */
+            top: 30px; /* Distance from the top */
+            right: 40px; /* Distance from the right */
         }
         .signin-btn:hover {
             background-color: #0056b3; /* Darker background color on hover */
         }
+        /* CSS for the big rounded square divs */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .big-square {
+            
+           
+  opacity: 0.68;
+
+
+
+
+            flex: 1;
+            background-color: #add8e6; /* Same color as background */
+            border-radius: 20px;
+            font-size: 25px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;}
+            .big-square:hover {
+  opacity: 1.0;
+}
     </style>
 </head>
 <body>
-    <h1 class="taxcraft">TaxCraft</h1>
-    <br>
-    <a class="btn btn-primary signin-btn" href="#">Sign In</a>
+    <div class="top-links">
+        <div class="top-link">
+            Products
+            <div class="dropdown-content">
+                <a href="#">LLM chatbot</a>
+                <a href="#">Tax Saver</a>
+            </div>
+        </div>
+        <div class="top-link">
+            Resources
+            <div class="dropdown-content">
+                <a href="#">WATCH</a>
+                <a href="#">ENGAGE</a>
+                <a href="#">Case Studies</a>
+                <a href="#">Newsletter</a>
+                <a href="#">Opinion Notes</a>
+                <a href="#">ClearLearn</a>
+                <a href="#">Product Guides</a>
+                <a href="#">Newsroom</a>
+                <a href="#">Blog</a>
+            </div>
+        </div>
+        <div class="top-link">
+            Company
+            <div class="dropdown-content">
+                <a href="#">Support</a>
+                <a href="#">About us</a>
+                <a href="#">Careers</a>
+                <a href="#">Media & Press</a>
+                <a href="#">Trust & Safety</a>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-primary signin-btn" href="login.html">Sign In</a>
+
+    <h1 class="taxcraft" style="font-weight: bold; font-size: 90px;">TaxCraft</h1>
+
+
+    <div class="container">
+        <div class="big-square">
+            <h2>What is the Problem?</h2>
+            <ul>
+                <li>Double taxation arises when the same income is subject to tax in multiple jurisdictions, leading to increased financial burden on individuals with foreign investments.</li>
+                <li>Lack of personalized solutions for people whose investments are diversified across geography.</li>
+                <li>The problem is the absence of personalized tax planning for diverse investment portfolios, leading to tax inefficiencies and missed savings opportunities.</li>
+            </ul>
+        </div>
+        <div class="big-square">
+            <h2>What is the Solution?</h2>
+            <ul>
+                <li>Identify Types of Income: Determine the types of income being brought back from the USA to India. This could include dividends, interest, capital gains, etc through an algorithm.</li>
+                <li>Diverse Investment Portfolio Planning: Create a system that can analyze a user's diverse investment portfolio and provide tax planning strategies that optimize tax efficiency.</li>
+                <li>Claim Foreign Tax Credits: If applicable, claim foreign tax credits in India for taxes paid in the USA on the income being brought back. This will help offset the Indian tax liability, reducing or eliminating double taxation.</li>
+            </ul>
+        </div>
+    </div>
+   
+    
+
+    <style>
+        .taxcraft {
+            font-weight: bold;
+            font-size: 120px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: shadow-pulse 1s infinite alternate;
+        }
+
+        @keyframes shadow-pulse {
+            0% {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            100% {
+                text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+            }
+        }
+    </style>
+    
+
+    
+    <form id="loginForm" onsubmit="return validateForm()" action="home.html">
+
+ 
 </body>
 </html>
+>>>>>>> d8275c9f87535709e27386092a375ae35219ca0d
