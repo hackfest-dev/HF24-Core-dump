@@ -7,8 +7,12 @@
     
     <style>
         /* CSS for styling */
+       
         body {
-            background: linear-gradient(to bottom right, #add8e6, #87ceeb); /* Gradient background color */
+     background-image: url('background.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+  background-size: 100% 100%; /* Gradient background color */
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
@@ -80,13 +84,23 @@
             width: 100%;
         }
         .big-square {
+            
+           
+  opacity: 0.68;
+
+
+
+
             flex: 1;
             background-color: #add8e6; /* Same color as background */
             border-radius: 20px;
+            font-size: 25px;
             margin: 20px;
             padding: 20px;
-            text-align: center;
-        }
+            text-align: center;}
+            .big-square:hover {
+  opacity: 1.0;
+}
     </style>
 </head>
 <body>
@@ -125,7 +139,7 @@
     </div>
     <a class="btn btn-primary signin-btn" href="login.html">Sign In</a>
 
-    <h1 class="taxcraft" style="font-weight: bold; font-size: 60px;">TaxCraft</h1>
+    <h1 class="taxcraft" style="font-weight: bold; font-size: 90px;">TaxCraft</h1>
 
 
     <div class="container">
@@ -141,7 +155,7 @@
             <h2>What is the Solution?</h2>
             <ul>
                 <li>Identify Types of Income: Determine the types of income being brought back from the USA to India. This could include dividends, interest, capital gains, etc through an algorithm.</li>
-                <li>Diverse Investment Portfolio Planning: Create a system that can analyze a users diverse investment portfolio and provide tax planning strategies that optimize tax efficiency.</li>
+                <li>Diverse Investment Portfolio Planning: Create a system that can analyze a user's diverse investment portfolio and provide tax planning strategies that optimize tax efficiency.</li>
                 <li>Claim Foreign Tax Credits: If applicable, claim foreign tax credits in India for taxes paid in the USA on the income being brought back. This will help offset the Indian tax liability, reducing or eliminating double taxation.</li>
             </ul>
         </div>
@@ -152,7 +166,7 @@
     <style>
         .taxcraft {
             font-weight: bold;
-            font-size: 60px;
+            font-size: 120px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             animation: shadow-pulse 1s infinite alternate;
         }
@@ -166,9 +180,10 @@
             }
         }
     </style>
+    
 
     
-    <form id="loginForm" onsubmit="return validateForm()" action="home.html">
+    <form id="loginForm" onsubmit="return validateForm()" action="index.html">
 
  
 </body>
